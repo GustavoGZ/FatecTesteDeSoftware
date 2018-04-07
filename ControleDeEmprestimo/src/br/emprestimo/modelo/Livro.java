@@ -18,13 +18,18 @@ public class Livro {
 		return titulo;
 	}
 	public void setTitulo(String titulo) {
-		this.titulo = titulo;
+		if(titulo == ""|| titulo == null){
+			throw new RuntimeException("Titulo Invalido");
+		}
 	}
 	public String getAutor() {
 		return autor;
 	}
 	public void setAutor(String autor) {
-		this.autor = autor;
+		if(autor == ""|| autor == null){
+			throw new RuntimeException("Autor Invalido");
+		}
+		
 	}
 
 }
