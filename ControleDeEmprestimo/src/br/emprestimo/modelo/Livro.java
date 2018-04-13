@@ -21,6 +21,7 @@ public class Livro {
 		if(titulo == ""|| titulo == null){
 			throw new RuntimeException("Titulo Invalido");
 		}
+		this.titulo=titulo;
 	}
 	public String getAutor() {
 		return autor;
@@ -29,7 +30,7 @@ public class Livro {
 		if(autor == ""|| autor == null){
 			throw new RuntimeException("Autor Invalido");
 		}
-		
+		this.autor=autor;
 	}
 
 }

@@ -9,7 +9,10 @@ public class Usuario {
 	}
 
 	public void setRa(String ra) {
-		this.ra = ra;
+		if(ra == ""|| ra == null){
+			throw new RuntimeException("RA Invalido");
+		}
+		this.ra=ra;
 	}
 
 	public String getNome() {
@@ -17,7 +20,10 @@ public class Usuario {
 	}
 
 	public void setNome(String nome) {
-		this.nome = nome;
+		if(nome == ""|| nome == null){
+			throw new RuntimeException("Nome Invalido");
+		}
+		this.nome=nome;
 	}
 
 	@Override
