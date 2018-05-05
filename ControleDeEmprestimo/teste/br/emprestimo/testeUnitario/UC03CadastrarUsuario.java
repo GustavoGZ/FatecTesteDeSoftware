@@ -13,7 +13,7 @@ public static Usuario usuario;
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		usuario = new Usuario();
-		usuario.setRa("11111");
+		usuario.setRa("111111");
 		usuario.setNome("Jose da Silva");
 	}
 
@@ -23,22 +23,42 @@ public static Usuario usuario;
 
 	@Test(expected = RuntimeException.class)
 	public void CT01UC03CadasUsuario_ra_invalido() {
-		usuario.setRa("");
+		try {
+			usuario.setRa("");
+			fail("deveria lançar uma exceção");
+		} catch (RuntimeException e) {
+			assertEquals("RA Invalido", e.getMessage());
+		}
 	}
 	
 	@Test(expected = RuntimeException.class)
 	public void CT02UC03CadasUsuario_ra_null() {
-		usuario.setRa(null);
+		try {
+			usuario.setRa(null);
+			fail("deveria lançar uma exceção");
+		} catch (RuntimeException e) {
+			assertEquals("RA Invalido", e.getMessage());
+		}
 	}
 	
 	@Test(expected = RuntimeException.class)
 	public void CT03UC03CadasUsuario_nome_invalido() {
-		usuario.setNome("");
+		try {
+			usuario.setNome("");
+			fail("deveria lançar uma exceção");
+		} catch (RuntimeException e) {
+			assertEquals("Nome Invalido", e.getMessage());
+		}
 	}
 	
 	@Test(expected = RuntimeException.class)
 	public void CT04UC03CadasUsuario_nome_null() {
-		usuario.setNome(null);
+		try {
+			usuario.setNome(null);
+			fail("deveria lançar uma exceção");
+		} catch (RuntimeException e) {
+			assertEquals("Nome Invalido", e.getMessage());
+		}
 	}
 	
 	@Test(expected = RuntimeException.class)
@@ -49,5 +69,14 @@ public static Usuario usuario;
 		assertTrue(resultadoEsperado.equals(usuario));
 	}
 
+	@Test
+	public void CT05UC03CadastarUsuário_com_nome_valido() {
+		assertEquals("Jose da Silva", usuario.getNome());
+	}
+	
+	@Test
+	public void CT05UC03CadastarUsuário_com_ra_valido() {
+		assertEquals("111111", usuario.getRa());
+	}
 
 }
